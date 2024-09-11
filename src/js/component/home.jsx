@@ -43,8 +43,12 @@ const TrafficLight = () => {
         }
     }
 
+    const lightsOff = () => {
+        setLights({red: "red light", yellow: "yellow light", green: "green light"})
+    }
+
 	return (
-		<div>
+		<div className="father">
 			<div style={poleStyle}></div>
 			<div className="top" style={lightStyle}>
                 <div className={lights.red} onClick={() => lighted("red")}></div>
@@ -55,6 +59,9 @@ const TrafficLight = () => {
             <div className="bottom" style={lightStyle}>
                 <div className={lights.green} onClick={() => lighted("green")}></div>
             </div>
+            <button className="mt-5 off" onClick={lightsOff}>
+                Lights off!
+            </button>
 		</div>
 		
 	);

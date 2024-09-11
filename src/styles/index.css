@@ -35,3 +35,11 @@
 .selected{
     box-shadow: 0px 0px 20px 15px;
 }
+.off{
+    left: 47%;
+    width: 100px;
+    position: absolute
+}
+.father{
+    position: relative
+}
