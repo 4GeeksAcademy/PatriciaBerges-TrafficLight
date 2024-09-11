@@ -31,15 +31,15 @@
     background-color: green;
     color: rgb(25, 255, 25)
 }
+.purple{
+    background-color: purple;
+    color: rgb(126, 32, 126)
+}
 
 .selected{
     box-shadow: 0px 0px 20px 15px;
 }
-.off{
-    left: 47%;
+.button{
+    margin-left: 47%;
     width: 100px;
-    position: absolute
-}
-.father{
-    position: relative
 }
