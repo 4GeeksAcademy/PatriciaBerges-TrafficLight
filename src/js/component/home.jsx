@@ -15,7 +15,7 @@ const TrafficLight = () => {
         margin: "auto",
         position: "relative"
     }
-    const lightClasses = {red: "red light", yellow: "yellow light", green: "green light"}
+    const lightClasses = {red: "red light", yellow: "yellow light", green: "green light", purple: "purple light"}
     
     const [lights, setLights] = useState(lightClasses)
 
@@ -24,52 +24,102 @@ const TrafficLight = () => {
             setLights({
                 red: "red light selected",
                 yellow: "yellow light",
-                green: "green light"
+                green: "green light",
+                purple: "purple light"
             });
         }
         else if (color === "yellow"){
             setLights({
                 red: "red light",
                 yellow: "yellow light selected",
-                green: "green light"
+                green: "green light",
+                purple: "purple light"
             })
         }
         else if (color === "green"){
             setLights({
                 red: "red light",
                 yellow: "yellow light",
-                green: "green light selected"
+                green: "green light selected",
+                purple: "purple light"
             })
+        }
+        else if (color === "purple"){
+            setLights({
+                red: "red light",
+                yellow: "yellow light",
+                green: "green light",
+                purple: "purple light selected"
+            })  
         }
     }
 
     const lightsOff = () => {
-        setLights({red: "red light", yellow: "yellow light", green: "green light"})
+        setLights({red: "red light", yellow: "yellow light", green: "green light", purple: "purple light"})
     }
 
     const rotateLight = () => {
-        if (lights.red === "red light selected" ){
-            setLights({
-                red: "red light",
-                yellow: "yellow light",
-                green: "green light selected"
-            })
+        if (purple === false){
+            if (lights.red === "red light selected" ){
+                setLights({
+                    red: "red light",
+                    yellow: "yellow light",
+                    green: "green light selected",
+                    purple: "purple light"
+                })
+            }
+            else if (lights.green === "green light selected"){
+                setLights({
+                    red: "red light",
+                    yellow: "yellow light selected",
+                    green: "green light",
+                    purple: "purple light"
+                })
+            }
+            else if (lights.yellow === "yellow light selected"){
+                setLights({
+                    red: "red light selected",
+                    yellow: "yellow light",
+                    green: "green light",
+                    purple: "purple light"
+                })
+            }
         }
-        else if (lights.green === "green light selected"){
-            setLights({
-                red: "red light",
-                yellow: "yellow light selected",
-                green: "green light"
-            })
-        }
-        else if (lights.yellow === "yellow light selected"){
-            setLights({
-                red: "red light selected",
-                yellow: "yellow light",
-                green: "green light"
-            })
-        }
-    }
+        else if (purple === true){
+            if (lights.red === "red light selected" ){
+                setLights({
+                    red: "red light",
+                    yellow: "yellow light",
+                    green: "green light",
+                    purple: "purple light selected"
+                })
+            }
+            else if (lights.green === "green light selected"){
+                setLights({
+                    red: "red light",
+                    yellow: "yellow light selected",
+                    green: "green light",
+                    purple: "purple light"
+                })
+            }
+            else if (lights.yellow === "yellow light selected"){
+                setLights({
+                    red: "red light selected",
+                    yellow: "yellow light",
+                    green: "green light",
+                    purple: "purple light"
+                })
+            }
+            else if (lights.purple === "purple light selected"){
+                setLights({
+                    red: "red light",
+                    yellow: "yellow light",
+                    green: "green light selected",
+                    purple: "purple light"
+                })
+            }
+        
+    }}
 
     let [purple, setPurple] = useState(false)
 
@@ -87,7 +137,7 @@ const TrafficLight = () => {
                         <div className={lights.green} onClick={() => lighted("green")}></div>
                     </div>
                     <div className="bottom" style={lightStyle}>
-                        <div className="purple light selected"></div>
+                        <div className={lights.purple} onClick={() => lighted("purple")}></div>
                     </div>
                 </div>
             )    
@@ -114,7 +164,7 @@ const TrafficLight = () => {
             </div>
             <div>
                 <button className="mt-2 button" onClick={rotateLight}>
-                    Light change!
+                    Cycle light!
                 </button>
             </div>
             <div>
@@ -127,4 +177,4 @@ const TrafficLight = () => {
 	);
 };
 
-export default TrafficLight;
+export default TrafficLight
