@@ -2,19 +2,7 @@ import React, { useState } from "react";
 
 
 const TrafficLight = () => {
-	const poleStyle = {
-		width: "8px",
-		height: "100px",
-		background: "black",
-		margin: "auto"
-	}
-	const lightStyle = {
-        width: "50px",
-        height: "50px",
-        background: "black",
-        margin: "auto",
-        position: "relative"
-    }
+
     const lightClasses = {red: "red light", yellow: "yellow light", green: "green light", purple: "purple light"}
     
     const [lights, setLights] = useState(lightClasses)
@@ -133,27 +121,27 @@ const TrafficLight = () => {
             
             return (
                 <div>
-                    <div style={lightStyle}>
+                    <div className="lightBlock">
                         <div className={lights.green} onClick={() => lighted("green")}></div>
                     </div>
-                    <div className="bottom" style={lightStyle}>
+                    <div className="bottom lightBlock" >
                         <div className={lights.purple} onClick={() => lighted("purple")}></div>
                     </div>
                 </div>
             )    
         }
-        else return (<div className="bottom" style={lightStyle}>
+        else return (<div className="bottom lightBlock" >
             <div className={lights.green} onClick={() => lighted("green")}></div>
         </div>)
     }
 
 	return (
 		<div >
-			<div style={poleStyle}></div>
-			<div className="top" style={lightStyle}>
+			<div className="pole"></div>
+			<div className="top lightBlock" >
                 <div className={lights.red} onClick={() => lighted("red")}></div>
             </div>
-            <div style={lightStyle}>
+            <div className="lightBlock">
                 <div className={lights.yellow} onClick={() => lighted("yellow")}></div>
             </div>
             {purpleLight()}
